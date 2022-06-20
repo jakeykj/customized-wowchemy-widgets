@@ -1,3 +1,3 @@
-module github.com/jakeykj/wowchemy-widget-myabout
+module github.com/jakeykj/customized-wowchemy-widgets
 
 go 1.15
