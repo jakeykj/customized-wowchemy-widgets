@@ -86,7 +86,7 @@
     {{ $msg_len := len $page.Params.messages }}
     {{ range $idx, $key := $page.Params.messages }}
       <div class="alert alert-note">
-        {{ .message | markdownify | emojify }}
+        <div> {{ .message | markdownify | emojify }} </div>
       </div>
     
     {{ end }}
