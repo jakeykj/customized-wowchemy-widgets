@@ -81,7 +81,20 @@
     </div>
   </div>
   <div class="col-12 col-lg-8">
-    **Testing myabout. If you see this line, it is using the custom widget now.**
+    
+    {{ if $page.Params.messages }}
+    {{ $msg_len := len $page.Params.messages }}
+    {{ range $idx, $key := $page.Params.messages }}
+      {{% callout note %}}
+        {{ .message | markdownify | emojify }}
+      {{% /callout %}}
+    
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    
+    
+    
     {{/* Only display widget title in explicit instances of about widget, not in author pages. */}}
     {{ if and $page.Params.widget $page.Title }}<h1>{{ $page.Title | markdownify | emojify }}</h1>{{ end }}
 
