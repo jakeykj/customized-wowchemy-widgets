@@ -85,9 +85,9 @@
     {{ if $page.Params.messages }}
     {{ $msg_len := len $page.Params.messages }}
     {{ range $idx, $key := $page.Params.messages }}
-      {{% callout note %}}
+      <div class="alert alert-note">
         {{ .message | markdownify | emojify }}
-      {{% /callout %}}
+      </div>
     
     {{ end }}
     {{ end }}
