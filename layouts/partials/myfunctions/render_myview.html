@@ -8,7 +8,7 @@
 {{ $index := .index }}
 
 {{if eq $view_dtype "int" | or (eq $view_dtype "int64") }}
-  {{/* Support legacy numeric views 1-5 */}}
+  {{/* Support legacy numeric views 1-6 */}}
   {{ if eq $view 1 }}
     {{ $view_file = "list" }}
   {{ else if eq $view 3 }}
@@ -27,9 +27,9 @@
     {{ $view_file = lower $view }}
   {{else}}
     {{/* Fallback to compact view */}}
-    {{ warnf "Failed to locate view at `partials/views/%s.html`. Check you specified a supported `view` in `%s`" $view $page.File.Path }}
+    {{ warnf "Failed to locate view at `partials/myviews/%s.html`. Check you specified a supported `view` in `%s`" $view $page.File.Path }}
     {{ $view_file = "compact" }}
   {{end}}
 {{ end }}
 
-{{ return (partial (printf "views/%s" $view_file) (dict "page" $page "item" $item "index" $index)) }}
+{{ return (partial (printf "myviews/%s" $view_file) (dict "page" $page "item" $item "index" $index)) }}
