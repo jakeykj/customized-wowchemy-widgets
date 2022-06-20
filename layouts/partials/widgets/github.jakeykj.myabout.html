@@ -83,8 +83,7 @@
   <div class="col-12 col-lg-8">
     
     {{ if $page.Params.messages }}
-    {{ $msg_len := len $page.Params.messages }}
-    {{ range $idx, $key := $page.Params.messages }}
+    {{ range $page.Params.messages }}
       {{with .message}}<div class="alert alert-note"> <div>{{. | markdownify | emojify}}</div></div>{{end}}
     {{ end }}
     {{ end }}
